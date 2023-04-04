@@ -1,0 +1,67 @@
+﻿@model DOMINGOROOFWORKSCLDV6211.Models.JobTypeInfo
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div>
+    <h4>JOBTYPE DETAILS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Job_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Job_ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.JobType_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobType_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.No_Of_Days)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.No_Of_Days)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DailyRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DailyRate)
+        </dd>
+
+    </dl>
+</div>
+
+
+<div class="form-group">
+    <input type="submit" value="Update" class="btn btn-info" />
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-dark">Cancel</a>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Job_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+
+

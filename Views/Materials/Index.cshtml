@@ -1,0 +1,66 @@
+﻿@model IEnumerable<DOMINGOROOFWORKSCLDV6211.Models.MaterialsInfo>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>MATERIALS INFORMATION</h1>
+
+<p>Below is where all material details can be viewed, new materials can be created and deleted and updates within the materials infomation can be completed.</p>
+
+<p>
+    <a asp-action="Create" class="btn btn-secondary">Add new Material</a>
+</p>
+
+@*For the display of the customer info*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Materials_Used)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Materials_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Job_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobCard_No)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var mat in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => mat.Materials_Used)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => mat.Materials_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => mat.Job_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => mat.JobCard_No)
+            </td>
+            <td>
+
+              
+                <a asp-action = "Edit" asp-route-id ="@mat.Materials_ID" class ="btn btn-light">Edit</a>
+              
+                <a asp-action = "Details" asp-route-id ="@mat.Materials_ID" class ="btn btn-info">Details</a>
+
+                <a asp-action = "Delete" asp-route-id = "@mat.Materials_ID" class ="btn btn-dark">Delete</a>
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+
+

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<DOMINGOROOFWORKSCLDV6211.Models.JobInfo>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>JOB CARD INFORMATION</h1>
+
+<p>Below is where all job card details can be viewed, new job cards can be created and deleted and updates within the job card infomation can be completed.</p>
+<p>
+    <a asp-action="Create" class="btn btn-secondary">Add new Job Card</a>
+</p>
+
+@*For the display of the job info*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.JobCard_No)
+        </th>
+    </tr>
+
+    @foreach (var JB in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => JB.JobCard_No)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@JB.JobCard_No" class="btn btn-light">Edit</a>
+
+                <a asp-action="Details" asp-route-id="@JB.JobCard_No" class="btn btn-info">Details</a>
+
+                <a asp-action="Delete" asp-route-id="@JB.JobCard_No" class="btn btn-dark">Delete</a>
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+

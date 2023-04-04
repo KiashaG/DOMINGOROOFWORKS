@@ -1,0 +1,116 @@
+﻿@model IEnumerable<DOMINGOROOFWORKSCLDV6211.Models.InvoiceInfo>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>INVOICE INFORMATION</h1>
+<p>Below is where all invoice details can be viewed, new invoices can be created and deleted and updates within the invoice infomation can be completed.</p>
+
+<p>
+    <a asp-action="Create" class="btn btn-secondary">Add new Invoice</a>
+</p>
+
+@*For the display of the invoice info*@
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.JobCard_NO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_Surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JobType_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee_Surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Materials_Used)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DailyRate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.No_Of_Days)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+
+        <th></th>
+    </tr>
+    @foreach (var inv in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => inv.JobCard_NO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => inv.Customer_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => inv.Customer_Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => inv.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => inv.JobType_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => inv.Employee_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => inv.Employee_Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => inv.Materials_Used)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => inv.DailyRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => inv.No_Of_Days)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => inv.SubTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => inv.Vat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => inv.Total)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@inv.JobCard_NO  " class="btn btn-light">Edit</a>
+
+                <a asp-action="Details" asp-route-id="@inv.JobCard_NO   " class="btn btn-info">Details</a>
+
+                <a asp-action="Delete" asp-route-id="@inv.JobCard_NO   " class="btn btn-dark">Delete</a>
+
+            </td>
+        </tr>
+    }
+
+</table>
+
